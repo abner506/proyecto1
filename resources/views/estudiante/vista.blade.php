@@ -41,8 +41,12 @@
                                     <td>{{$estudiantes->Matricula}}</td>
                                     <td>{{$estudiantes->Nombre}}</td>
                                     <td>{{$estudiantes->Direccion}}</td>
-                                    <td> Editar|Eliminar</td>
-                                </tr>
+                                    <td><button type="submit" onclick="return confirm ('¿Deseas Borrar?');">Eliminar</button></td>
+                                    <form method="POST" action="{{ url("Lista/{$estudiantes->Matricula}") }}">
+                                         @csrf
+                                         @method('DELETE')
+                                        </form>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -52,3 +56,4 @@
         </div>
     </body>
 </html>
+

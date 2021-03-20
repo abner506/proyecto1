@@ -19,12 +19,13 @@ class ListaController extends Controller
         ->where ('matricula','=',$texto)->paginate(10);
         return view ('estudiante.index', compact('estudiante','texto'));
     }
-        public function create()
-        {
-        //
-        }
 
-        public function store(Request $request)
+    public function create()
+    {
+        //
+    }
+
+    public function store(Request $request)
     {
         //
     }
@@ -51,6 +52,10 @@ class ListaController extends Controller
     public function destroy($id)
     {
         {
+            $estudiante= estudiante::find($id);
+            //dd($estudiante);
+            $estudiante->delete();
+            return redirect()->route('Lista.index');
 
         }
 

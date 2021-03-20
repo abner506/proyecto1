@@ -21,3 +21,6 @@ Route::get('/', function () {
 
 
 Route::resource('/Lista',ListaController::class);
+
+Route::delete('Lista/{matricula}', 'ListaController@destroy')
+->name('Lista.destroy');
